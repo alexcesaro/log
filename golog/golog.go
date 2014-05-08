@@ -265,7 +265,7 @@ func writeInt(tmp *[23]byte, intLength, position, integer int) {
 var levelPrefixes = []string{
 	" EMERGENCY ",
 	" ALERT ",
-	" critical ",
+	" CRITICAL ",
 	" ERROR ",
 	" WARNING ",
 	" NOTICE ",
