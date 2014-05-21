@@ -213,12 +213,12 @@ func (logger *Logger) output(level log.Level, args ...interface{}) {
 
 	buffer := logger.getBuffer()
 	logger.Formatter(&buffer.Buffer, level, args...)
-	formattedMessage := buffer.Bytes()
-	logger.putBuffer(buffer)
 
 	logger.writeMutex.Lock()
-	logger.Writer(logger.out, formattedMessage, level)
+	logger.Writer(logger.out, buffer.Bytes(), level)
 	logger.writeMutex.Unlock()
+
+	logger.putBuffer(buffer)
 }
 
 var defaultFormater = func(buffer *bytes.Buffer, level log.Level, args ...interface{}) {

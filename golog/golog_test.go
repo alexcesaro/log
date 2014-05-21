@@ -122,6 +122,21 @@ func TestConditionalLogging(t *testing.T) {
 	}
 }
 
+func TestConcurrentLogging(t *testing.T) {
+	logger, out := createTestLogger(log.Info)
+	done := make(chan bool)
+
+	logger.Info("Test")
+	go func() {
+		logger.Info("Test")
+		done <- true
+	}()
+	logger.Info("Test")
+	<-done
+
+	logtest.AssertLineCount(t, out, 3)
+}
+
 func BenchmarkLogging(b *testing.B) {
 	logger, _ := createTestLogger(log.Info)
 
