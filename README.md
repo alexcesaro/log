@@ -6,6 +6,9 @@ This repository contains logging packages for Go:
    [stdlog](#stdlog) is built upon them.
  - [log](#log) just provides a common interface for logging libraries.
 
+You are more than welcome to ask questions on the [Go mailing-list](https://groups.google.com/d/topic/golang-nuts/Gif79T-1jNQ/discussion) and open issues here if you find bugs.
+
+
 # stdlog
 
 [Documentation](http://godoc.org/github.com/alexcesaro/log/stdlog)
