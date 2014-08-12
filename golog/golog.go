@@ -202,6 +202,11 @@ func (logger *Logger) LogLevel(level log.Level) bool {
 	return logger.threshold >= level
 }
 
+// SetLevel sets the logger to a new log level
+func (logger *Logger) SetLevel(level log.Level) {
+	logger.threshold = level
+}
+
 // Close does nothing and is just here so that Logger satisfies the log.Logger
 // interface.
 func (logger *Logger) Close() error { return nil }
