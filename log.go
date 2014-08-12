@@ -111,5 +111,8 @@ type Logger interface {
 	// LogLevel returns true if the log level is at or below the level argument.
 	LogLevel(level Level) bool
 
+	// SetLevel sets the logger to a new log level
+	SetLevel(level Level)
+
 	io.Closer
 }
