@@ -262,19 +262,8 @@ func writeInt(tmp *[23]byte, intLength, position, integer int) {
 	}
 }
 
-var levelPrefixes = []string{
-	" EMERGENCY ",
-	" ALERT ",
-	" CRITICAL ",
-	" ERROR ",
-	" WARNING ",
-	" NOTICE ",
-	" INFO ",
-	" DEBUG ",
-}
-
 func addLevel(buffer *bytes.Buffer, level log.Level) {
-	buffer.WriteString(levelPrefixes[level])
+	buffer.WriteString(fmt.Sprintf(" %s ", level))
 }
 
 func addMessage(buffer *bytes.Buffer, args ...interface{}) {
