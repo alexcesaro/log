@@ -19,6 +19,17 @@ const (
 	Debug
 )
 
+var levelPrefixes = []string{
+	"EMERGENCY",
+	"ALERT",
+	"CRITICAL",
+	"ERROR",
+	"WARNING",
+	"NOTICE",
+	"INFO",
+	"DEBUG",
+}
+
 // Logger is a common interface for logging libraries.
 type Logger interface {
 	// Emergency logs with an emergency level.
@@ -112,4 +123,8 @@ type Logger interface {
 	LogLevel(level Level) bool
 
 	io.Closer
+}
+
+func (l Level) String() string {
+	return levelPrefixes[l]
 }
